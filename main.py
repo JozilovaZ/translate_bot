@@ -3,8 +3,13 @@ from aiogram import Bot, Dispatcher, executor, types
 from aiogram.types import InlineKeyboardMarkup, InlineKeyboardButton
 from googletrans import Translator
 from deep_translator import GoogleTranslator
+from environs import Env
+env = Env()
+env.read_env()
 
-BOT_TOKEN = "7743118893:AAES8ZaCsDmsRl4lO3ZyVwPX9Xry3blqsDM"
+# .env fayl ichidan quyidagilarni o'qiymiz
+BOT_TOKEN = env.str("BOT_TOKEN")
+
 logging.basicConfig(level=logging.INFO)
 
 bot = Bot(token=BOT_TOKEN)
